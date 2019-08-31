@@ -29,7 +29,7 @@ void viewResize(struct view *View, char size_x, char size_y)
 {
 	View->size_x = size_x;	View->size_y = size_y;
 }
-
+2222
 void viewDisplay(HWND hWnd, struct view *View)
 {
 	int x, y;
