@@ -21,7 +21,7 @@ CALLBACK hWndWinProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam);
 
 struct view {
 	char *buffer;
-	UINT bufferSize;wer
+	UINT bufferSize;
 	int x, y, size_x, size_y, xPos, yPos;
 } View;
 
@@ -29,12 +29,13 @@ void viewResize(struct view *View, char size_x, char size_y)
 {
 	View->size_x = size_x;	View->size_y = size_y;
 }
-2222
+
 void viewDisplay(HWND hWnd, struct view *View)
 {
 	int x, y;
 	UINT i = 0;
-x
+	
+	if(!*View->buffer) return;
 
 	y = View->yPos;
 	while(View->buffer[i] && y>0) {
@@ -49,9 +50,9 @@ x
 		case   13: break;
 		case '\t': x+=4; break;
 		case '\n': x = 0; ++y; break;
-		default:sdf
+		default:
 			if(x < View->size_x) {
-				PutChar2WindowXY(hWnd, View->buffevr[i], 15 | (7<<4), View->x+x, View->y+y);
+				PutChar2WindowXY(hWnd, View->buffer[i], 15 | (7<<4), View->x+x, View->y+y);
 				++x;
 			}
 		}
